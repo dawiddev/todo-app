@@ -6,7 +6,12 @@ class TodoList extends React.Component {
     return (
       <ul>
         {this.props.todos.map((todo) => (
-          <TodoItem key={todo.id} todo={todo.input}/>
+          <TodoItem
+            key={todo.id}
+            todo={todo.input}
+            completed={todo.completed}
+            handleCompletion={this.props.handleCompletion}
+          />
         ))}
       </ul>
     );
