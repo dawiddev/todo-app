@@ -6,19 +6,31 @@ import React from "react";
 // }
 
 class TodoItem extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      completed: false,
+    };
+  }
+
+  handleCompletion = () => {
+    this.setState({ completed: !this.state.completed });
+    console.log(this.state);
+  };
 
   render() {
     return (
       <div>
         <h1
           style={{
-            textDecoration: this.props.completed ? "line-through" : "none",
+            textDecoration: this.state.completed ? "line-through" : "none",
           }}
         >
           <input
             type="checkbox"
             name={this.props.todo}
-            onChange={this.props.handleCompletion}
+            onChange={this.handleCompletion}
           ></input>
           {this.props.todo}
         </h1>

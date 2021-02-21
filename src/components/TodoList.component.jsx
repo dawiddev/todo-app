@@ -9,8 +9,6 @@ class TodoList extends React.Component {
           <TodoItem
             key={todo.id}
             todo={todo.input}
-            completed={todo.completed}
-            handleCompletion={this.props.handleCompletion}
           />
         ))}
       </ul>

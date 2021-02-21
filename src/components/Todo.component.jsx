@@ -7,11 +7,6 @@ class Todo extends React.Component {
     this.state = { todos: [], input: "" };
   }
 
-  handleCompletion = () => {
-    this.setState({ completed: !this.state.completed });
-    console.log(this.state);
-  }
-
   handleChange = (e) => {
     this.setState({ input: e.target.value });
   };
@@ -26,7 +21,6 @@ class Todo extends React.Component {
     const newTodo = {
       input: this.state.input,
       id: Date.now(),
-      completed: false,
     };
 
     this.setState((state) => ({
@@ -38,7 +32,6 @@ class Todo extends React.Component {
   render() {
     return (
       <div>
-        <TodoList todos={this.state.todos} handleCompletion={this.handleCompletion} />
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-item">
             {" "}
@@ -52,6 +45,7 @@ class Todo extends React.Component {
           />
           <button type="submit">Add Task</button>
         </form>
+        <TodoList todos={this.state.todos} />
       </div>
     );
   }
